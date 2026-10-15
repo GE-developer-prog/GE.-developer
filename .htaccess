@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Redirect .html URLs to clean URLs
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+# Homepage
+RewriteRule ^$ index.html [L]
+
+# Serve existing files and directories normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Clean URLs for HTML pages
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^skills/?$ skills.html [L]
+RewriteRule ^services/?$ services.html [L]
+RewriteRule ^projects/?$ projects.html [L]
+RewriteRule ^testimonials/?$ testimonials.html [L]
+RewriteRule ^blog/?$ blog.html [L]
+RewriteRule ^contact/?$ contact.html [L]

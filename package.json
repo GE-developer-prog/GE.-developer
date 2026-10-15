@@ -1,0 +1,112 @@
+{
+  "name": "ge-developer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Godwin Emmanuel (GE. developer) is a self-taught frontend developer from Lagos, Nigeria, who builds responsive, interactive, and user-friendly web projects.",
+  "author": "Godwin Emmanuel",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "geDeveloper": {
+    "fullName": "Godwin Emmanuel",
+    "brand": "GE. developer",
+    "title": "Frontend Developer",
+    "location": "Lagos, Nigeria",
+    "about": "I'm Godwin Emmanuel, a self-taught frontend developer who enjoys turning ideas into functional, responsive, and visually engaging websites. I learn by building real-world projects, exploring new technologies, and continuously improving my skills. Outside coding, I enjoy anime, gaming, animation, and the creative side of technology.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Tailwind CSS",
+      "Vite",
+      "GSAP",
+      "Responsive Web Design"
+    ],
+    "portfolio": "https://gedeveloper.netlify.app",
+    "github": "https://github.com/GE-developer-prog",
+    "projects": [
+      {
+        "name": "GE. developer Portfolio",
+        "url": "https://gedeveloper.netlify.app",
+        "description": "A personal portfolio showcasing my skills, projects, and development journey."
+      },
+      {
+        "name": "Ekeson Fashion",
+        "url": "https://ekesonfashion.netlify.app",
+        "description": "An e-commerce website for fashion products."
+      },
+      {
+        "name": "9JA-NIME",
+        "url": "https://9jaludo.netlify.app",
+        "description": "An anime-inspired gaming project."
+      },
+      {
+        "name": "GE Sync Text Converter",
+        "url": "https://gesync.netlify.app",
+        "description": "A web tool for converting and transforming text."
+      },
+      {
+        "name": "GE Artify",
+        "url": "https://geartify.netlify.app",
+        "description": "An image-generation project."
+      },
+      {
+        "name": "EasyCalc",
+        "url": "https://easycalcweb-online.netlify.app",
+        "description": "A simple, accessible online calculator."
+      },
+      {
+        "name": "Instant QR Code Generator",
+        "url": "https://instant-qrcode-generator.netlify.app",
+        "description": "A web tool for generating QR codes."
+      },
+      {
+        "name": "Hungry Snake",
+        "url": "https://onlinegame-hungrysnake.netlify.app",
+        "description": "A browser-based snake game."
+      },
+      {
+        "name": "Rock Paper Scissors Arena",
+        "url": "https://online-rpsarena.netlify.app",
+        "description": "A browser-based Rock Paper Scissors game."
+      },
+      {
+        "name": "To-Do List",
+        "url": "https://javascriptproject-to-do-list.netlify.app",
+        "description": "A task-management application for organizing daily activities."
+      },
+      {
+        "name": "Tic Tac Toe",
+        "url": "https://project-tictactoe-x-and-o.netlify.app",
+        "description": "A classic Tic Tac Toe browser game."
+      },
+      {
+        "name": "Godapo Ventures",
+        "url": "https://godapoventures.netlify.app",
+        "description": "A business website project."
+      },
+      {
+        "name": "Breathe Easy Stretch",
+        "url": "https://www.breatheeasystretch.com",
+        "description": "A website for a stretching and wellness business, including booking functionality."
+      },
+      {
+        "name": "Caring Hands Transport",
+        "url": "https://caringhandstransport.net",
+        "description": "A transportation service website with service requests, employment applications, and feedback functionality."
+      }
+    ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.0"
+  }
+}
