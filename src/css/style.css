@@ -130,14 +130,67 @@ input,textarea,select{width:100%;min-width:0}
 .sheen{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);opacity:0}
 .back-glass{position:relative;height:100%;border-radius:41px;overflow:hidden;background:purple;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),inset 0 0 40px rgba(255,255,255,.18)}
 .back-glass::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 60% at 20% 0%,rgba(255,255,255,.38),transparent 60%),linear-gradient(115deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%)}
-.cam{position:absolute;top:5%;left:6.5%;width:43%;aspect-ratio:1;border-radius:24%;background:#00abf0}
+/* .cam{position:absolute;top:5%;left:6.5%;width:43%;aspect-ratio:1;border-radius:24%;background:#00abf0}
 .lens{position:absolute;width:42%;aspect-ratio:1;border-radius:50%;padding:7%;background:conic-gradient(from 210deg,#e8ecf1,#8d95a1,#f3f5f8,#6f7785,#dfe3e9,#8d95a1,#e8ecf1);box-shadow:0 3px 6px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.4)}
 .lens b{display:block;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(190,205,255,.9) 0 5%,transparent 6%),radial-gradient(circle at 50% 50%,#05060b 0 34%,#1b1038 46%,#0b1226 58%,#04050a 72%,#161a26 100%);box-shadow:inset 0 0 6px 2px rgba(0,0,0,.9)}
 .lens.l1{left:9%;top:9%}.lens.l2{right:9%;bottom:9%}
 .flash{position:absolute;right:11%;top:12%;width:16%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fffbe8 0,#ffe9a0 40%,#cfc08a 70%,#6f6a55 100%);box-shadow:0 0 0 2px rgba(255,255,255,.55),0 1px 3px rgba(0,0,0,.4)}
-.mic{position:absolute;left:14%;bottom:13%;width:6%;aspect-ratio:1;border-radius:50%;background:#2a3140;box-shadow:inset 0 1px 2px rgba(0,0,0,.8)}
+.mic{position:absolute;left:14%;bottom:13%;width:6%;aspect-ratio:1;border-radius:50%;background:#2a3140;box-shadow:inset 0 1px 2px rgba(0,0,0,.8)} */
 .back-mark{position:absolute;left:0;right:0;top:35%;text-align:center;font-family:Montserrat,sans-serif;font-weight:800;font-size:3.5rem;letter-spacing:.02em;color:rgba(255,255,255,.62);text-shadow:0 1px 0 rgba(0,0,0,.12),0 -1px 0 rgba(255,255,255,.3)}
 .back-sub{position:absolute;left:0;right:0;bottom:7%;text-align:center;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,50,75,.55)}
+
+/* Smaller, tinted camera module */
+.cam{
+  position:absolute;
+  top:5%;
+  left:6%;
+  width:38%;
+  aspect-ratio:1;
+  border-radius:26%;
+  background:#00ABF0;
+  box-shadow:0 2px 6px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.3);
+}
+.lens{
+  position:absolute;
+  width:43%;
+  aspect-ratio:1;
+  border-radius:50%;
+  padding:6%;
+  background:conic-gradient(from 210deg,#e8ecf1,#8d95a1,#f3f5f8,#6f7785,#dfe3e9,#8d95a1,#e8ecf1);
+  box-shadow:0 3px 6px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.4);
+}
+.lens b{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 28%,rgba(190,205,255,.9) 0 5%,transparent 6%),
+    radial-gradient(circle at 50% 50%,#05060b 0 34%,#1b1038 46%,#0b1226 58%,#04050a 72%,#161a26 100%);
+  box-shadow:inset 0 0 6px 2px rgba(0,0,0,.9);
+}
+.lens.l1{left:8%;top:8%}
+.lens.l2{right:8%;bottom:8%}
+.flash{
+  position:absolute;
+  right:10%;
+  top:11%;
+  width:15%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,#fffbe8 0,#ffe9a0 40%,#cfc08a 70%,#6f6a55 100%);
+  box-shadow:0 0 0 2px rgba(255,255,255,.55),0 1px 3px rgba(0,0,0,.4);
+}
+.mic{
+  position:absolute;
+  left:14%;
+  bottom:13%;
+  width:6%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:#2a3140;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.8);
+}
 
 .chat-scroll {
   flex: 1;
