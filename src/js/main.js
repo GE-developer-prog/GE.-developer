@@ -611,7 +611,7 @@ put('projGrid', PROJECTS.map((p) => `<article class="glass overflow-hidden flex 
 put('whyHome', WHY.slice(0, 4).map(([i, t, d]) => `<div class="glass glow tilt p-5 rv"><i class="fa-solid ${i} text-brand text-2xl mb-3"></i><h3 class="font-display font-bold mb-1">${t}</h3><p class="text-sm text-mute">${d}</p></div>`).join(''))
 put('whyAbout', WHY.map(([i, t, d]) => `<li class="flex gap-3"><i class="fa-solid ${i} text-brand mt-1 w-5"></i><span><b>${t}.</b> <span class="text-mute">${d}</span></span></li>`).join(''))
 /* ---------- Testimonials: 3D phone carousel (iPhone 13 front + back, flip, coverflow, popping messages) ---------- */
-const phone = (t, i) => `<div class="ph" data-i="${i}"><div class="ph-flip">${[-3, -1.5, 0, 1.5, 3].map((z) => `<i class="ph-edge" style="transform:translateZ(${z}px)"></i>`).join('')}<article class="iphone ph-front" style="transform:translateZ(4px)"><div class="iphone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="flex gap-1"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></span></div><div class="flex flex-col items-center gap-1 pt-3 pb-2 border-b border-[var(--line)]"><span class="w-8 h-8 rounded-full bg-brand/20 text-brand grid place-items-center text-xs font-bold">${t.name[0]}</span><span class="text-[10px] font-semibold">${t.name}</span></div><div class="chat-scroll"><div class="flex flex-col gap-1.5 px-2.5 py-2.5 chat leading-snug"><p class="pop-t text-center text-[10px] text-mute">Today ${t.time}</p>${t.chat.map(([who, text]) => who === 'c' ? `<div class="pop-c self-start max-w-[80%] bg-brand/15 border border-[var(--line)] rounded-2xl rounded-bl-md px-2.5 py-1.5">${text}</div>` : `<div class="pop-m self-end max-w-[80%] grid"><div class="typing col-start-1 row-start-1 self-end justify-self-end bg-neon text-white rounded-2xl rounded-br-md px-4 py-2 text-[7px] flex gap-1"><span class="animate-pulse">●</span><span class="animate-pulse [animation-delay:.2s]">●</span><span class="animate-pulse [animation-delay:.4s]">●</span></div><div class="bub col-start-1 row-start-1"><p class="text-[9px] text-neon text-right mb-0.5 font-semibold">GE.developer</p><div class="bg-neon text-white rounded-2xl rounded-br-md px-2.5 py-1.5">${text}</div></div></div>`).join('')}</div></div><div class="home-bar"></div><div class="sheen"></div><div class="dim"></div></div></article><div class="iphone ph-back" style="transform:rotateY(180deg) translateZ(4px)"><div class="back-glass"><div class="cam"><i class="lens l1"><b></b></i><i class="lens l2"><b></b></i><i class="flash"></i><i class="mic"></i></div><div class="back-mark"><i class="fa-brands fa-apple"></i></div><div class="back-sub">iPhone</div><div class="dim"></div></div></div></div></div>`
+const phone = (t, i) => `<div class="ph" data-i="${i}"><div class="ph-flip">${Array.from({ length: 17 }, (_, i) => `<i class="ph-edge" style="transform:translateZ(${i * 0.4375 - 3.5}px)"></i>`).join('')}<article class="iphone ph-front" style="transform:translateZ(4px)"><div class="iphone-screen"><div class="notch"></div><div class="status"><span>9:41</span><span class="flex gap-1"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></span></div><div class="flex flex-col items-center gap-1 pt-3 pb-2 border-b border-[var(--line)]"><span class="w-8 h-8 rounded-full bg-brand/20 text-brand grid place-items-center text-xs font-bold">${t.name[0]}</span><span class="text-[10px] font-semibold">${t.name}</span></div><div class="chat-scroll"><div class="flex flex-col gap-1.5 px-2.5 py-2.5 chat leading-snug"><p class="pop-t text-center text-[10px] text-mute">Today ${t.time}</p>${t.chat.map(([who, text]) => who === 'c' ? `<div class="pop-c self-start max-w-[80%] bg-brand/15 border border-[var(--line)] rounded-2xl rounded-bl-md px-2.5 py-1.5">${text}</div>` : `<div class="pop-m self-end max-w-[80%] grid"><div class="typing col-start-1 row-start-1 self-end justify-self-end bg-neon text-white rounded-2xl rounded-br-md px-4 py-2 text-[7px] flex gap-1"><span class="animate-pulse">●</span><span class="animate-pulse [animation-delay:.2s]">●</span><span class="animate-pulse [animation-delay:.4s]">●</span></div><div class="bub col-start-1 row-start-1"><p class="text-[9px] text-neon text-right mb-0.5 font-semibold">GE.developer</p><div class="bg-neon text-white rounded-2xl rounded-br-md px-2.5 py-1.5">${text}</div></div></div>`).join('')}</div></div><div class="home-bar"></div><div class="sheen"></div><div class="dim"></div></div></article><div class="iphone ph-back" style="transform:rotateY(180deg) translateZ(4px)"><div class="back-glass"><div class="cam"><i class="lens l1"><b></b></i><i class="lens l2"><b></b></i><i class="flash"></i><i class="mic"></i></div><div class="back-mark"><i class="fa-brands fa-apple"></i></div><div class="back-sub">iPhone</div><div class="dim"></div></div></div></div></div>`
 put('testiGrid', TESTIMONIALS.map(phone).join(''))
 put('testiDots', TESTIMONIALS.map((_, i) => `<button type="button" data-dot="${i}" aria-label="Show phone ${i + 1}" class="h-2.5 w-2.5 rounded-full bg-fg/20 transition-all"></button>`).join(''))
 
@@ -644,11 +644,24 @@ function initTestimonials() {
   dots.forEach((b) => (b.onclick = () => goto(+b.dataset.dot)))
   track.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') goto(active + 1); if (e.key === 'ArrowLeft') goto(active - 1) })
   dragScroll(track, coverflow)
+    const shade = (f) => f.style.setProperty('--shade', (Math.abs(Math.sin(gsap.getProperty(f, 'rotationY') * Math.PI / 180)) * .55).toFixed(3))
+  // flip like a real phone: pick it up, turn it over, put it down with a tiny bounce (the shadow follows)
+  const flipTo = (i) => {
+    const f = flips[i], sh = $('.ph-shadow', phs[i]); f._back = !f._back
+    if (reduce) { gsap.set(f, { rotationY: f._back ? 180 : 0 }); return shade(f) }
+    gsap.timeline({ onUpdate: () => shade(f) })
+      .to(f, { y: -38, scale: 1.1, rotationX: -9, duration: .32, ease: 'power2.out' }, 0)
+      .to(flips, { rotationY: 0, duration: 1.8, ease: 'power3.inOut', stagger: .14, onUpdate: () => flips.forEach(shade) }, 0)
+      .to(f, { rotationZ: f._back ? 5 : -5, duration: .45, ease: 'sine.inOut' }, .04)
+      .to(f, { rotationZ: 0, duration: .6, ease: 'back.out(1.7)' }, .5)
+      .to(f, { y: 0, scale: 1, rotationX: 0, duration: .6, ease: 'back.out(1.7)' }, .72)
+      .to(sh, { scaleX: .7, opacity: .35, duration: .32 }, 0)
+      .to(sh, { scaleX: 1, opacity: 1, duration: .6, ease: 'back.out(1.5)' }, .72)
+  }
   // tap the middle phone to flip it; tap a side phone to bring it to the middle
   phs.forEach((p, i) => p.addEventListener('click', () => {
     if (i !== active) return goto(i)
-    const f = flips[i]; f._back = !f._back
-    gsap.to(f, { rotationY: f._back ? 180 : 0, duration: reduce ? 0 : .9, ease: 'power3.inOut' })
+    flipTo(i)
   }))
   track.scrollLeft = center(Math.floor((phs.length - 1) / 2))
   coverflow()
@@ -879,13 +892,14 @@ setInterval(tick, 1000);
 
 /* ---------- AI assistant (rule-based, answers only from real info) ---------- */
 const botBtn = $('#botBtn'), bot = $('#bot'), log = $('#botLog'), input = $('#botIn')
-const CHIPS = ['What skills does GE.developer have?', 'Show me the projects', 'What time is it in London?', 'How can I contact GE?']
+const CHIPS = ['What skills does GE.developer have?', 'Which anime do you watch?', 'Who is your favorite character?', 'What time is it in London?']
 let busy = false
 function toggleBot(open = bot.classList.contains('invisible')) {
   bot.classList.toggle('invisible', !open); bot.classList.toggle('opacity-0', !open); bot.classList.toggle('translate-y-3', !open)
   bot.classList.toggle('flex', open); botBtn.setAttribute('aria-expanded', open)
+  document.body.classList.toggle('overflow-hidden', open && innerWidth < 640) // full screen on phones: stop the page behind from scrolling
   if (open && !log.children.length) welcome()
-  if (open) input.focus()
+  if (open) { hideTeasers(); if (innerWidth >= 640) input.focus() }
 }
 function welcome() {
   log.innerHTML = ''
@@ -906,8 +920,29 @@ function addMsg(role, text) {
   return el
 }
 const go = (id) => { setTimeout(() => (location.href = id === 'home' ? '/' : `/${id}`), 900); return `Taking you to ${id}.` }
+// ---- Teach the assistant: it answers from your favorites list automatically, plus any lines you add below ----
+const FAQ = [
+  { keys: ['anime', 'watch'], reply: () => `Anime I love: ${ANIME.map((a) => a.name + (a.genre ? ` (${a.genre})` : '')).join(', ')}.` },
+  { keys: ['character', 'characters'], reply: () => `My favorite characters: ${CHARACTERS.map((c) => `${c.name} from ${c.anime}`).join(', ')}.` },
+  { keys: ['game', 'gaming', 'play'], reply: () => `Games I love: ${GAMES.map((g) => g.name + (g.genre ? ` (${g.genre})` : '')).join(', ')}.` },
+  { keys: ['hobby', 'hobbies', 'interest', 'free time'], reply: 'I enjoy anime, gaming, DC, Marvel, animation and technology.' },
+  // Add your own like this (a word the visitor might type, and your answer):
+  // { keys: ['price', 'cost', 'how much'], reply: 'Prices depend on the project. Message me on WhatsApp for a quote.' },
+]
+function faqAnswer(q) {
+  const named = [...ANIME.map((x) => [x, 'anime']), ...GAMES.map((x) => [x, 'game']), ...CHARACTERS.map((x) => [x, 'character'])].find(([x]) => x.name && q.includes(x.name.toLowerCase()))
+  if (named) {
+    const [x, kind] = named
+    return kind === 'character'
+      ? `${x.name} is from ${x.anime}. Abilities: ${[].concat(x.abilities || []).join(', ')}. ${x.about} Why I love them: ${x.why}`
+      : `${x.name}${x.genre ? ` (${x.genre})` : ''}. Why it's my best: ${x.why} About it: ${x.about}`
+  }
+  const f = FAQ.find((f) => f.keys.some((k) => new RegExp('\\b' + k).test(q)))
+  return f ? (typeof f.reply === 'function' ? f.reply() : f.reply) : ''
+}
 function answer(q) {
   q = q.toLowerCase()
+  const hit = faqAnswer(q); if (hit) return hit
   if (/\b(time|date|clock|zone|today|day is it|difference|ahead|behind)\b/.test(q)) {
     if (/\b(usa|america|united states|\bus\b)\b/.test(q) && !/new york|los angeles|chicago|denver|toronto/.test(q))
       return `The United States has several time zones. Right now: New York ${fmt('America/New_York', { hour: '2-digit', minute: '2-digit', hour12: false })}, Chicago ${fmt('America/Chicago', { hour: '2-digit', minute: '2-digit', hour12: false })}, Denver ${fmt('America/Denver', { hour: '2-digit', minute: '2-digit', hour12: false })}, Los Angeles ${fmt('America/Los_Angeles', { hour: '2-digit', minute: '2-digit', hour12: false })}. Tell me a city for one answer.`
@@ -1107,6 +1142,152 @@ if (favTabs) {
   favTabs.onclick = (e) => { const b = e.target.closest('[data-tab]'); if (b) show(b.dataset.tab) }
   show(['anime', 'games', 'characters'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'all')
 }
+
+/* ---------- Floating WhatsApp button (above the AI button) + friendly teaser bubbles ---------- */
+const WA = 'https://wa.me/2347062470998'
+const wa = document.createElement('a')
+wa.id = 'waBtn'; wa.href = WA; wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('aria-label', 'Chat with me on WhatsApp')
+wa.className = 'fixed right-4 bottom-[5.25rem] z-50 w-14 h-14 rounded-full grid place-items-center text-white text-3xl shadow-[0_0_24px_rgba(37,211,102,.5)]'
+wa.style.background = 'linear-gradient(145deg,#2be26f,#119b4a)'
+wa.innerHTML = '<i class="fa-brands fa-whatsapp"></i>'
+document.body.append(wa)
+
+const mkTeaser = (tag, id, text, bottom) => {
+  const b = document.createElement(tag)
+  b.id = id
+  b.className = `fixed right-[4.9rem] ${bottom} z-50 max-w-[13.5rem] text-left text-sm glass px-3 py-2 rounded-2xl rounded-br-sm hidden`
+  b.innerHTML = `${text}<span class="block text-[10px] text-brand mt-1">Tap here</span>`
+  if (tag === 'a') { b.href = WA; b.target = '_blank'; b.rel = 'noopener' } else b.type = 'button'
+  document.body.append(b)
+  return b
+}
+const aiTeaser = mkTeaser('button', 'aiTeaser', "Hi, I'm GE, want to know more about me?", 'bottom-5')
+const waTeaser = mkTeaser('a', 'waTeaser', "Hi, I'm on WhatsApp, tap it", 'bottom-[6.1rem]')
+aiTeaser.onclick = () => toggleBot(true)
+const showTeaser = (el) => {
+  if (!bot.classList.contains('invisible')) return // assistant already open
+  el.classList.remove('hidden')
+  if (!reduce) gsap.fromTo(el, { opacity: 0, scale: .6, y: 10, transformOrigin: 'right bottom' }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(2)' })
+  setTimeout(() => hideOne(el), 8000)
+}
+const hideOne = (el) => { if (el.classList.contains('hidden')) return; if (reduce) return el.classList.add('hidden'); gsap.to(el, { opacity: 0, y: 8, duration: .3, onComplete: () => el.classList.add('hidden') }) }
+function hideTeasers() { clearTimeout(t1); clearTimeout(t2); hideOne(aiTeaser); hideOne(waTeaser) }
+
+let t1 = setTimeout(() => showTeaser(aiTeaser), 9000);
+let t2 = setTimeout(() => showTeaser(waTeaser), 17000);
+
+waTeaser.addEventListener('click', () => hideOne(waTeaser)); wa.addEventListener('click', hideTeasers)
+
+/* ---------- GE.developer wordmark: particles + spider web come together, then an alphabet countdown ---------- */
+function wordFx(el, o = {}) {
+  if (!el || reduce) return
+  const gap = o.gap || (small() ? 4 : 3), pad = o.pad || 60, web = o.web || (small() ? 22 : 30), ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const cv = document.createElement('canvas'); cv.setAttribute('aria-hidden', 'true')
+  cv.style.cssText = 'position:absolute;pointer-events:none;opacity:0;z-index:1'
+  el.dataset.wf = '1'; el.style.position = 'relative'
+  if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block'
+  el.append(cv)
+  const ctx = cv.getContext('2d')
+  let P = [], C = [], W = 0, H = 0, dpr = 1, raf = 0, busy = false
+  // read the word as it is on the page (position, font, colour), then turn it into particles
+  const measure = () => {
+    const er = el.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, 2)
+    W = Math.ceil(er.width + pad * 2); H = Math.ceil(er.height + pad * 2)
+    cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; cv.style.left = -pad + 'px'; cv.style.top = -pad + 'px'
+    const off = document.createElement('canvas'); off.width = W; off.height = H
+    const oc = off.getContext('2d', { willReadFrequently: true }); C = []
+    ;[...el.childNodes].filter((n) => n !== cv && (n.nodeType === 3 || n.nodeType === 1)).forEach((n) => {
+      const st = getComputedStyle(n.nodeType === 3 ? el : n), r = document.createRange(); r.selectNodeContents(n)
+      const rr = r.getBoundingClientRect(), txt = n.textContent, font = `${st.fontWeight} ${st.fontSize} ${st.fontFamily}`
+      oc.font = font; oc.textBaseline = 'alphabetic'; oc.fillStyle = st.color
+      const asc = oc.measureText('M').fontBoundingBoxAscent || parseFloat(st.fontSize) * .8
+      const x0 = rr.left - er.left + pad, base = rr.top - er.top + pad + asc
+      oc.fillText(txt, x0, base)
+      for (let i = 0; i < txt.length; i++) C.push({ ch: txt[i], x: x0 + oc.measureText(txt.slice(0, i)).width, y: base, font, color: st.color })
+    })
+    const d = oc.getImageData(0, 0, W, H).data; P = []
+    for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) {
+      const i = (y * W + x) * 4
+      if (d[i + 3] > 140) P.push({ i: P.length, hx: x, hy: y, x, y, vx: 0, vy: 0, c: `${d[i]},${d[i + 1]},${d[i + 2]}` })
+    }
+  }
+  const run = (mode) => {
+    if (busy) return; busy = true
+    el.classList.remove('wf-hide'); measure(); el.classList.add('wf-hide')
+    gsap.set(cv, { opacity: 1 })
+    if (mode === 'intro') P.forEach((p) => { const a = Math.random() * 6.283, r = (.3 + Math.random() * .8) * Math.max(W, H) * .5; p.x = W / 2 + Math.cos(a) * r; p.y = H / 2 + Math.sin(a) * r * .7 })
+    else { // break apart, then rearrange: every particle flies to a different spot of the word
+      const homes = P.map((p) => ({ hx: p.hx, hy: p.hy, c: p.c })).sort(() => Math.random() - .5)
+      P.forEach((p, k) => { Object.assign(p, homes[k]); p.vx = (Math.random() - .5) * 34; p.vy = (Math.random() - .5) * 34 })
+    }
+    const rem = C.map((c) => (/[a-z]/i.test(c.ch) ? 6 + Math.floor(Math.random() * 14) : 0))
+    let t0 = performance.now(), stage = 'web', tc = 0, last = 0
+    const frame = (now) => {
+      const t = (now - t0) / 1000
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H)
+      const k = stage === 'web' ? .06 : .1
+      P.forEach((p) => { p.vx = (p.vx + (p.hx - p.x) * k) * .84; p.vy = (p.vy + (p.hy - p.y) * k) * .84; p.x += p.vx; p.y += p.vy })
+      if (stage === 'web' && t > 1.7) { stage = 'count'; tc = now }
+      const tcs = stage === 'count' ? (now - tc) / 1000 : 0
+      const pa = stage === 'count' ? Math.max(0, 1 - tcs / .7) : 1                       // particles fade while the letters count down
+      const wa = stage === 'count' ? Math.max(0, .5 - tcs) : Math.min(.55, .12 + t * .4) * (t > 1.1 ? Math.max(.3, 1 - (t - 1.1) / 1) : 1)
+      // spider web between nearby particles
+      if (wa > .01) {
+        const cell = web, grid = new Map(), nodes = P.filter((p) => p.i % 3 === 0)
+        nodes.forEach((p) => { const key = ((p.x / cell) | 0) + ',' + ((p.y / cell) | 0); if (!grid.has(key)) grid.set(key, []); grid.get(key).push(p) })
+        ctx.lineWidth = .7
+        nodes.forEach((p) => {
+          const cx = (p.x / cell) | 0, cy = (p.y / cell) | 0
+          for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) (grid.get((cx + dx) + ',' + (cy + dy)) || []).forEach((q) => {
+            if (q.i <= p.i) return
+            const d = Math.hypot(p.x - q.x, p.y - q.y)
+            if (d < cell) { ctx.strokeStyle = `rgba(0,171,240,${(1 - d / cell) * wa})`; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke() }
+          })
+        })
+      }
+      if (pa > .01) P.forEach((p) => { ctx.fillStyle = `rgba(${p.c},${pa})`; ctx.fillRect(p.x - .9, p.y - .9, 1.8, 1.8) })
+      // alphabet countdown: each letter counts down the alphabet until it lands on the right one
+      let done = false
+      if (stage === 'count') {
+        if (now - last > 55) { last = now; C.forEach((c, i) => { if (tcs > i * .07 && rem[i] > 0) rem[i]-- }) }
+        C.forEach((c, i) => {
+          if (tcs <= i * .07) return
+          let ch = c.ch
+          if (rem[i] > 0) { const j = ALPHA.indexOf(ch.toUpperCase()); const x = ALPHA[(j + rem[i]) % 26]; ch = ch === ch.toLowerCase() ? x.toLowerCase() : x }
+          ctx.font = c.font; ctx.fillStyle = c.color; ctx.globalAlpha = rem[i] > 0 ? .7 : 1; ctx.fillText(ch, c.x, c.y); ctx.globalAlpha = 1
+        })
+        done = rem.every((r) => r <= 0) && tcs > C.length * .07 + .25
+      }
+      if (done) {
+        el.classList.remove('wf-hide')
+        gsap.to(cv, { opacity: 0, duration: .35, onComplete: () => { ctx.clearRect(0, 0, W, H); busy = false } })
+        return
+      }
+      raf = requestAnimationFrame(frame)
+    }
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(frame)
+  }
+  const again = () => { if (!busy) run('burst') }
+  if (matchMedia('(hover:hover)').matches) el.addEventListener('pointerenter', again)
+  if (o.tap) el.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') again() })
+  run('intro')
+}
+
+/* ---------- Footer social banner (fill in your links; entries with an empty url are hidden) ---------- */
+const SOCIALS = [
+  { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', url: 'https://wa.me/2347062470998', color: '#25D366' },
+  { name: 'Instagram', icon: 'fa-brands fa-instagram', url: '#', color: '#E4405F' },
+  { name: 'X (Twitter)', icon: 'fa-brands fa-x-twitter', url: '#', color: 'var(--fg)' },
+  { name: 'TikTok', icon: 'fa-brands fa-tiktok', url: '#', color: '#FF0050' },
+  { name: 'LinkedIn', icon: 'fa-brands fa-linkedin-in', url: '#', color: '#0A66C2' },
+  { name: 'Facebook', icon: 'fa-brands fa-facebook-f', url: '#', color: '#1877F2' },
+  { name: 'YouTube', icon: 'fa-brands fa-youtube', url: '#', color: '#FF0000' },
+  { name: 'Telegram', icon: 'fa-brands fa-telegram', url: '#', color: '#26A5E4' },
+  { name: 'Snapchat', icon: 'fa-brands fa-snapchat', url: '#', color: '#FFD400' },
+]
+const footEl = $('footer')
+if (footEl) footEl.insertAdjacentHTML('afterbegin', `<div class="max-w-6xl mx-auto mb-10 glass p-5 sm:p-6 bg-gradient-to-br from-brand/10 to-neon/10"><div class="flex flex-wrap items-end justify-between gap-2 mb-4"><div><p class="font-mono text-brand text-xs">// CONNECT</p><h2 class="font-display font-extrabold text-2xl">Follow me everywhere</h2></div><p class="text-mute text-sm">Tap a card to open my page.</p></div><div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">${SOCIALS.filter((s) => s.url).map((s) => `<a class="soc" style="--c:${s.color}" href="${s.url}" target="_blank" rel="noopener" aria-label="${s.name}"><i class="${s.icon}"></i><span class="font-semibold text-sm">${s.name}</span></a>`).join('')}</div></div>`)
+
 /* ---------- Particles (start after loading) ---------- */
 function particles() {
   const c = $('#fx'), x = c.getContext('2d'); let w, h, mouse = { x: -999, y: -999 }
@@ -1136,6 +1317,8 @@ function particles() {
 
 /* ---------- GSAP: float, tilt, reveals, counters, header, active nav ---------- */
 function motion() {
+  wordFx($('#home h1'), { tap: true })
+  wordFx($('#hdr a'), { gap: 2, pad: 14, web: 14 })
   if (!reduce) {
     gsap.from('.hero-in', { y: 30, opacity: 0, stagger: .12, duration: .8, ease: 'power2.out' })
     gsap.set('.rv', { opacity: 0 })

@@ -16,6 +16,30 @@
   border-right-color: purple;
 }
 
+/* ===== Loader: remove the thin dark outline (clashes with Tailwind's "ring" class) ===== */
+.ring,.ring2{box-shadow:none!important}
+
+/* ===== Hide every scrollbar (scrolling still works everywhere) ===== */
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* ===== Assistant: full screen on phones, sits above the WhatsApp + AI buttons on bigger screens ===== */
+#bot{bottom:10.5rem;z-index:60}
+#botClose{font-size:1.2rem;padding:.35rem .6rem}
+@media (max-width:639px){
+  #bot{inset:0;bottom:0;right:0;width:100%;max-width:none;height:100dvh;border-radius:0;padding-top:env(safe-area-inset-top)}
+  #botLog{font-size:.95rem}
+}
+
+/* ===== GE.developer wordmark animation ===== */
+[data-wf],[data-wf] *{transition:color .35s}
+.wf-hide,.wf-hide *{color:transparent!important;transition:none!important}
+
+/* ===== Footer social banner ===== */
+.soc{display:flex;align-items:center;gap:.75rem;padding:.7rem .9rem;border-radius:1rem;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.soc:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 0 22px color-mix(in srgb,var(--c) 45%,transparent)}
+.soc i{width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.1rem;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);flex:none}
+
 :root{--bg:#05070f;--panel:rgba(12,20,40,.65);--fg:#eaf2ff;--mute:#9aa8c4;--line:rgba(0,171,240,.28)}
 :root.light{--bg:#f4f8fd;--panel:rgba(255,255,255,.88);--fg:#0b1426;--mute:#4b5a75;--line:rgba(0,171,240,.4)}
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
@@ -125,7 +149,22 @@ input,textarea,select{width:100%;min-width:0}
 .ph-back{position:absolute;inset:0;padding:3px;background:purple;border:2px solid purple;}
 .ph-back::before{left:auto;right:-4px}
 .ph-back::after{right:auto;left:-4px}
-.ph-edge{position:absolute;inset:0;border-radius:46px;border:2px solid purple;background:linear-gradient(90deg,#1b1f29,#5d667a 50%,#1b1f29)}
+.ph-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 46px;
+  border: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.1) 0 1px,
+      transparent 1px 3px
+    ),
+    linear-gradient(
+      90deg, purple 100%
+    );
+}
 .dim{position:absolute;inset:0;border-radius:inherit;background:#05070f;opacity:var(--dim,0);pointer-events:none;z-index:6}
 .sheen{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);opacity:0}
 .back-glass{position:relative;height:100%;border-radius:41px;overflow:hidden;background:purple;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),inset 0 0 40px rgba(255,255,255,.18)}
