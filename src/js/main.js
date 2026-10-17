@@ -31,7 +31,7 @@ const BARS = [['HTML', 85], ['CSS', 78], ['JavaScript', 65], ['TAILWIND', 65]]
 const SKILLS = [
   ['Core', ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS', 'Responsive Web Design', 'Vite']],
   ['Development', ['Frontend Development', 'UI Implementation', 'Form Development', 'API Integration', 'JavaScript Functionality', 'Debugging', 'Browser Compatibility', 'Performance Awareness']],
-  ['MY Experience Working With A Backend Developer', ['Laravel API integration', 'REST-style API consumption', 'JSON', 'Fetch API', 'Authentication-related workflows', 'File uploads', 'Form validation']],
+  ['My Experience Working With A Backend Developer', ['Laravel API integration', 'REST-style API consumption', 'JSON', 'Fetch API', 'Authentication-related workflows', 'File uploads', 'Form validation']],
   ['Workflow', ['Git', 'GitHub', 'Environment Variables', 'Deployment', 'Hosting', '.htaccess', 'Production troubleshooting']],
 ]
 const SERVICES = [
